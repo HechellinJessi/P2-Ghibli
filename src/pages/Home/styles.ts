@@ -3,12 +3,8 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
 
     container: {
-        marginTop: 50,
-        flex: 1,
-        backgroundColor: '#CCC',
-        flexDirection: "row",
-        flexWrap: "wrap",
-        alignContent: "space-between"
+        marginTop: 60,
+
     },
 
     title: {

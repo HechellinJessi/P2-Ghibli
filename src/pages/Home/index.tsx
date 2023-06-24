@@ -22,7 +22,7 @@ export default function Home() {
   );
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
         <Text style={styles.title} >Procure pelo seu filme Ghibli favorito:</Text>
       <TextInput
         style={styles.input}
