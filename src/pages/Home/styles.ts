@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
 
     },
 
+
     title: {
         marginLeft: 8,
         fontWeight: 'bold',
@@ -38,8 +39,5 @@ export const styles = StyleSheet.create({
         padding: 5
     },
 
-
-
-
-
+ 
 })
