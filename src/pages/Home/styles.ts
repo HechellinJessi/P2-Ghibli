@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
 
     },
 
-
     title: {
         marginLeft: 8,
         fontWeight: 'bold',
