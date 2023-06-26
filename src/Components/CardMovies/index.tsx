@@ -14,7 +14,7 @@ interface CardProps {
 
 export const Card: React.FC<CardProps> = ({ title, image, onPressAdd, onPressFavorite, isFavorite }) => {
   return (
-    <View>
+    <View style={styles.card}>
       <View style={styles.cardContainer}>
         <TouchableOpacity style={styles.cardContainerImage}>
           <Image style={styles.cardImage} source={{ uri: image }} />

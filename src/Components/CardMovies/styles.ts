@@ -5,17 +5,19 @@ export const styles = StyleSheet.create({
   cardContainer: {
     backgroundColor: "#4D6DBF55",
     borderRadius: 10,
-    marginRight: 5,
-    marginBottom: 5,
-    padding: 5,
     height: 320,
     width: 180,
     justifyContent: "space-between"
 
   },
 
+  card:{
+    justifyContent:"space-evenly"
+  },
+
   cardContainerImage: {
     alignItems: "center",
+    width: "100%",
     
   },
 

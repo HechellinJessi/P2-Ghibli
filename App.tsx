@@ -1,6 +1,8 @@
 import React from 'react';
-// import Quiz from './src/pages/Quiz'
+import BemVindo from './src/pages/BemVindo'
 import Home from './src/pages/Home';
+import Diretores from './src/pages/Diretores'
+import Favorites from './src/pages/Favoritos';
 
 
 export default function App() {
