@@ -143,7 +143,6 @@ export default function Home() {
                 Hiroyuki Morita
               </Text>
             </TouchableOpacity>
-
             <TouchableOpacity
               style={[
                 styles.titleButtons,
@@ -164,7 +163,10 @@ export default function Home() {
           </View>
         </View>
         
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+
         <FlatList
+        scrollEnabled={false}
           data={filteredFilms}
           renderItem={({ item }) => (
             <View style={styles.cardContainer}>

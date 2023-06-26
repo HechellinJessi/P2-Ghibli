@@ -16,7 +16,6 @@ export const styles = StyleSheet.create({
         justifyContent: "space-evenly",
         height: 150
     },
-
     containerTitle: {
         flexDirection: "row",
         justifyContent: "space-evenly",
@@ -38,6 +37,10 @@ export const styles = StyleSheet.create({
         backgroundColor: 'black',
         color: 'white',
       },
+
+    scrollViewContent:{
+        paddingBottom: 80,
+    },
 
     title: {
         marginLeft: 8,
