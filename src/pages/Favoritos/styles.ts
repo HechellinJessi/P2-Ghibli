@@ -7,6 +7,12 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 20,
   },
+
+  AreaView: {
+    marginTop: 55,
+    margin: 5
+  },
+
   noFavoritesContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -16,5 +22,14 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
+  },
+
+  cardContainer: {
+    borderRadius: 10,
+    height: 320,
+    width: 180,
+    margin: 5,
+    justifyContent: 'space-evenly',
+
   },
 });

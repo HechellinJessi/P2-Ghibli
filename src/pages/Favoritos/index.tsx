@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, SafeAreaView } from 'react-native';
 import { Card } from '../../Components/CardMovies';
+import {styles} from './styles'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 interface Film {
@@ -39,17 +40,20 @@ export default function Favorites() {
   };
 
   return (
-    <View style={{marginTop: 50, marginLeft: 15}}>
+    <SafeAreaView style={styles.AreaView}>
+    <View>
       {favoriteFilms.length > 0 ? (
         <FlatList
           data={favoriteFilms}
           renderItem={({ item }) => (
+            <View style={styles.cardContainer}>
             <Card
               title={item.title}
               image={item.image}
               onPressFavorite={() => removeFavoriteFilm(item.id)}
               isFavorite={true}
             />
+            </View>
           )}
           keyExtractor={(item) => item.id}
           numColumns={2}
@@ -58,5 +62,6 @@ export default function Favorites() {
         <Text>Você ainda nao tem filmes favoritos D:</Text>
       )}
     </View>
+    </SafeAreaView>
   );
 }

@@ -3,12 +3,45 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
 
     container: {
-        marginTop: 60,
+        marginTop: 55,
+        margin: 5
+    },
+
+    scrollViewContent:{
+        paddingBottom: 150,
+    },
+
+    directorsFilter: {
+        width: "100%",
+        justifyContent: "space-evenly",
+        height: 150
+    },
+    containerTitle: {
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        width: "100%"
+    },
+
+    titleButtons: {
+        backgroundColor: '#DDDDDD',
+        marginRight: 10,
+        borderRadius: 10,
+        width: 155,
+        height: 30,
+        alignItems: "center",
+        justifyContent: "center"
 
     },
+
+    selectedDirector: {
+        backgroundColor: 'black',
+        color: 'white',
+      },
+
     scrollViewContent:{
         paddingBottom: 80,
     },
+
     title: {
         marginLeft: 8,
         fontWeight: 'bold',
@@ -39,6 +72,26 @@ export const styles = StyleSheet.create({
         margin: 10, 
         padding: 5
     },
+
+    selectedButtonText: {
+        color: '#fff',
+      },
+
+      buttonText: {
+        fontSize: 14,
+      },
+      selectedButton: {
+        backgroundColor: '#2196F3',
+      },
+
+      cardContainer: {
+        borderRadius: 10,
+        height: 320,
+        width: 180,
+        margin: 5,
+        justifyContent: 'space-evenly',
+
+      },
 
  
 })
