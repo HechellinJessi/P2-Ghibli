@@ -68,8 +68,9 @@ export default function Home() {
         placeholder="Buscar..."
       />
 
-      <ScrollView>
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <FlatList
+        scrollEnabled={false}
           data={filteredFilms}
           renderItem={({ item }) => (
             <Card

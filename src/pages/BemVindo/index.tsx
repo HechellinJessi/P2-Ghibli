@@ -6,7 +6,7 @@ import { styles } from './styles';
 
 import telaone from '../../assets/Image/imgOne.png'
 
-export default function BmVindo(){
+export default function BemVindo(){
     return(
         <View style={styles.container}>
             <Image style={styles.image} source={telaone}/>
