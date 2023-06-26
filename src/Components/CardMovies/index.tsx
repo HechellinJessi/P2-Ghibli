@@ -3,6 +3,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
+import  Modal from '../Modal';
 
 interface CardProps {
   title: string;
@@ -20,6 +21,7 @@ export const Card: React.FC<CardProps> = ({ title, image, onPressAdd, onPressFav
           <Image style={styles.cardImage} source={{ uri: image }} />
           <View style={styles.titleContainer}>
             <Text style={styles.cardTitle}>{title}</Text>
+            <Modal/>
           </View>
         </TouchableOpacity>
 
