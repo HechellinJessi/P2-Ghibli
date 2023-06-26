@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     },
 
     scrollViewContent:{
-        paddingBottom: 80,
+        paddingBottom: 120,
     },
 
     directorsFilter: {
