@@ -1,15 +1,18 @@
 import React from 'react';
-// import Quiz from './src/pages/Quiz'
-import Home from './src/pages/Home';
+import { StatusBar } from 'expo-status-bar';
+import { BottomTabNavigator } from './src/routes/BottomTabNavigator'
 
 
 export default function App() {
   return (
-    
     <>
-     <Home />
+     <StatusBar
+        backgroundColor='#070707'
+        hidden={false}
+        translucent={true}
+      />
+      <BottomTabNavigator />
     </>
-
   );
 }
 

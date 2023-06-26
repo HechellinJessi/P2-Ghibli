@@ -6,7 +6,9 @@ export const styles = StyleSheet.create({
         marginTop: 60,
 
     },
-
+    scrollViewContent:{
+        paddingBottom: 80,
+    },
     title: {
         marginLeft: 8,
         fontWeight: 'bold',
