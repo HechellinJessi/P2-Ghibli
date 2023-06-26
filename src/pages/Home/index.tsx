@@ -163,8 +163,6 @@ export default function Home() {
           </View>
         </View>
         
-      <ScrollView contentContainerStyle={styles.scrollViewContent}>
-
         <FlatList
         scrollEnabled={false}
           data={filteredFilms}
@@ -181,7 +179,6 @@ export default function Home() {
           )}
           keyExtractor={(item) => item.id}
           numColumns={2}
-          scrollEnabled={false}
         />
         </ScrollView>
     </SafeAreaView>
