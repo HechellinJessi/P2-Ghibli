@@ -38,10 +38,6 @@ export const styles = StyleSheet.create({
         color: 'white',
       },
 
-    scrollViewContent:{
-        paddingBottom: 80,
-    },
-
     title: {
         marginLeft: 8,
         fontWeight: 'bold',
