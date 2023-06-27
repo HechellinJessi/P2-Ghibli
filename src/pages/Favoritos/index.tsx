@@ -3,6 +3,7 @@ import { View, Text, FlatList, SafeAreaView } from 'react-native';
 import { Card } from '../../Components/CardMovies';
 import {styles} from './styles'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Headline } from 'react-native-paper';
 
 interface Film {
   id: string;
@@ -79,7 +80,7 @@ const getData = async () => {
           numColumns={2}
         />
       ) : (
-        <Text>Você ainda nao tem filmes favoritos D: {name}</Text>
+        <Headline>Você ainda nao tem filmes favoritos D: {name}</Headline>
       )}
     </View>
     </SafeAreaView>

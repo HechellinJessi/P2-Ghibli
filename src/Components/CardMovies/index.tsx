@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import { MaterialIcons } from '@expo/vector-icons';
-
+import { Headline } from 'react-native-paper';
 
 interface CardProps {
   // id: string;
@@ -20,7 +20,7 @@ export const Card: React.FC<CardProps> = ({ title, image, onPressAdd, onPressFav
         <TouchableOpacity style={styles.cardContainerImage}>
           <Image style={styles.cardImage} source={{ uri: image }} />
           <View style={styles.titleContainer}>
-            <Text style={styles.cardTitle}>{title}</Text>
+            <Headline style={styles.cardTitle}>{title}</Headline>
             
           </View>
         </TouchableOpacity>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Alert, Modal, StyleSheet, Text, Pressable, View, Image } from 'react-native';
 import { styles } from './styles';
 import { Film } from '../../services/Api';
+import { Headline } from 'react-native-paper';
 
 type ModalDescriptionProps = {
     film: Film;
