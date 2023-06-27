@@ -165,23 +165,23 @@ export default function Home() {
           </View>
         </View>
         <FlatList
-  scrollEnabled={false}
-  data={filteredFilms}
-  renderItem={({ item }) => (
-    <View style={styles.cardContainer}>
-      <Card
-        title={item.title}
-        image={item.image}
-        onPressAdd={() => {}}
-        onPressFavorite={() => toggleFavorite(item.title)}
-        isFavorite={favoriteFilms.some((film) => film.title === item.title)}
-      />
-      <Modal film={item} />
-    </View>
-  )}
-  keyExtractor={(item) => item.id}
-  numColumns={2}
-/>
+          scrollEnabled={false}
+          data={filteredFilms}
+          renderItem={({ item }) => (
+            <View style={styles.cardContainer}>
+              <Card
+                title={item.title}
+                image={item.image}
+                onPressAdd={() => { }}
+                onPressFavorite={() => toggleFavorite(item.title)}
+                isFavorite={favoriteFilms.some((film) => film.title === item.title)}
+              />
+              <Modal film={item} />
+            </View>
+          )}
+          keyExtractor={(item) => item.id}
+          numColumns={2}
+        />
       </ScrollView>
     </SafeAreaView>
 

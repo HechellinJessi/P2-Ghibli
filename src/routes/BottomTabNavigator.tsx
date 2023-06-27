@@ -92,7 +92,7 @@ export const BottomTabNavigator = () => {
 
                     component={StackNavigator} 
 
-                    component={BemVindo} 
+                    // component={BemVindo} 
 
                 />
                 <Tab.Screen 
@@ -111,7 +111,7 @@ export const BottomTabNavigator = () => {
                     component={Favorites} 
                 />
 
-                <Tab.Screen 
+                {/* <Tab.Screen 
                     options={{
                         headerShown: false,
                         tabBarIcon: ({ color, size, focused}) => {
@@ -125,7 +125,7 @@ export const BottomTabNavigator = () => {
                     }} 
                     name='Login'
                     component={Login} 
-                />
+                /> */}
 
             </Tab.Navigator>
         </NavigationContainer>
