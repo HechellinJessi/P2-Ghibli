@@ -1,16 +1,19 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import { styles } from "./styles"
 
 import Buttons from "../../Components/Buttons";
+import { useNavigation } from "@react-navigation/native";
 
-import teletwo from "../../assets/Raskrasil.com-Coloring-Pages-Totoro-44-removebg-preview-removebg-preview.png"
+import imgTwo from "../../assets/Image/imgTwo.png"
 
 
 export default function () {
+
+
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={teletwo} />
+            <Image style={styles.image} source={imgTwo} />
             <TouchableOpacity>
                 <View style={styles.box}>
                     <View style={styles.bowtwo}>
