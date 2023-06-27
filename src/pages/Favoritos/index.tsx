@@ -12,6 +12,26 @@ interface Film {
 
 export default function Favorites() {
   const [favoriteFilms, setFavoriteFilms] = useState<Film[]>([]);
+  const [name, setName] = useState('');
+
+  useEffect(() => {
+    getData();
+}, []);
+
+const getData = async () => {
+    try {
+      await AsyncStorage.getItem('UserData')
+            .then(value => {
+                if (value != null) {
+                    let user = JSON.parse(value);
+                    setName(user.Name);
+                }
+            })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
   useEffect(() => {
     getFavoriteFilms();
@@ -59,7 +79,7 @@ export default function Favorites() {
           numColumns={2}
         />
       ) : (
-        <Text>Você ainda nao tem filmes favoritos D:</Text>
+        <Text>Você ainda nao tem filmes favoritos D: {name}</Text>
       )}
     </View>
     </SafeAreaView>

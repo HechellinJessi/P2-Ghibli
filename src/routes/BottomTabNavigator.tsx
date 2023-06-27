@@ -2,6 +2,7 @@ import React from 'react';
 import Home from '../pages/Home'
 import Favorites from '../pages/Favoritos';
 import BemVindo from '../pages/BemVindo';
+
 import Informacao from '../pages/Informacao';
 
 import { createNativeStackNavigator} from '@react-navigation/native-stack'
@@ -23,6 +24,7 @@ export type RootTabParamList = {
 	Home: undefined;
 	Favorites: undefined;
 	BemVindo: undefined;
+
 }
 
 function StackNavigator(){
@@ -35,6 +37,9 @@ function StackNavigator(){
             <Stack.Screen name='Informacao' component={Informacao} />
         </Stack.Navigator>
     )
+
+    Login: undefined;
+
 }
 
 export const BottomTabNavigator = () => {
@@ -84,7 +89,11 @@ export const BottomTabNavigator = () => {
                             
                     }} 
                     name='BemVindo'
+
                     component={StackNavigator} 
+
+                    component={BemVindo} 
+
                 />
                 <Tab.Screen 
                     options={{
@@ -101,6 +110,23 @@ export const BottomTabNavigator = () => {
                     name='Favorites'
                     component={Favorites} 
                 />
+
+                <Tab.Screen 
+                    options={{
+                        headerShown: false,
+                        tabBarIcon: ({ color, size, focused}) => {
+                            if(focused){
+                                return<Ionicons name="ios-person" size={30} color={color} />
+                            }
+                            
+                            return<Ionicons name="ios-person-outline" size={size} color={color} />
+                        }
+                            
+                    }} 
+                    name='Login'
+                    component={Login} 
+                />
+
             </Tab.Navigator>
         </NavigationContainer>
     );
