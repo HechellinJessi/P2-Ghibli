@@ -100,7 +100,11 @@ export const BottomTabNavigator = () => {
                         }
                     }}
                     name='BemVindo'
+
                     component={StackNavigator}
+
+                    // component={BemVindo} 
+
                 />
                 <Tab.Screen
                     options={{
@@ -113,8 +117,24 @@ export const BottomTabNavigator = () => {
                         }
                     }}
                     name='Favorites'
-                    component={Favorites}
+                    component={Favorites} 
                 />
+
+                {/* <Tab.Screen 
+                    options={{
+                        headerShown: false,
+                        tabBarIcon: ({ color, size, focused}) => {
+                            if(focused){
+                                return<Ionicons name="ios-person" size={30} color={color} />
+                            }
+                            
+                            return<Ionicons name="ios-person-outline" size={size} color={color} />
+                        }
+                            
+                    }} 
+                    name='Login'
+                    component={Login} 
+                /> */}
             </Tab.Navigator>
         </ThemeContextProvider>
 
