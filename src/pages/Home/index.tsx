@@ -5,12 +5,14 @@ import { Card } from '../../Components/CardMovies';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from './styles';
 import Modal from '../../Components/Modal';
+import { Headline } from 'react-native-paper';
 
 export default function Home() {
   const [films, setFilms] = useState<Film[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [favoriteFilms, setFavoriteFilms] = useState<Film[]>([]);
   const [selectedDirector, setSelectedDirector] = useState<string>('');
+ 
 
 
   useEffect(() => {
@@ -76,7 +78,8 @@ export default function Home() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Procure pelo seu filme Ghibli favorito:</Text>
+      {/* <Text style={styles.title}>Procure pelo seu filme Ghibli favorito:</Text> */}
+      <Headline style={styles.title}>Procure pelo seu filme Ghibli favorito:</Headline>
       <TextInput
         style={styles.input}
         onChangeText={(text) => setSearchQuery(text)}

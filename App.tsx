@@ -11,7 +11,6 @@ export default function App() {
         backgroundColor='#fff'
         translucent={false}
       />
-
       <BottomTabNavigator/>
     </>
   );

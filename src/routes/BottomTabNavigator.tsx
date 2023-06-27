@@ -5,14 +5,29 @@ import BemVindo from '../pages/BemVindo';
 
 import Informacao from '../pages/Informacao';
 
-import { createNativeStackNavigator} from '@react-navigation/native-stack'
-import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { ThemeContextProvider, useTheme } from '../Context/ThemeContext';
 
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 
+import { View } from 'react-native';
+import { Button, Headline } from 'react-native-paper';
+
 const Tab = createBottomTabNavigator<RootTabParamList>();
 const Stack = createNativeStackNavigator();
+
+const ThemeScreen = () => {
+    const { toggleThemeType, themeType, isDarkTheme, theme } = useTheme();
+
+    return (
+        <View>
+            <Button mode='contained' onPress={toggleThemeType}>
+                Theme
+            </Button>
+        </View>
+    )
+}
 
 export type RootStackParamList = {
     BemVindo: undefined,
@@ -21,31 +36,29 @@ export type RootStackParamList = {
 }
 
 export type RootTabParamList = {
-	Home: undefined;
-	Favorites: undefined;
-	BemVindo: undefined;
+    Home: undefined;
+    Favorites: undefined;
+    BemVindo: undefined;
 
 }
 
-function StackNavigator(){
-    return(
+function StackNavigator() {
+    return (
         <Stack.Navigator
-        screenOptions={{
-            headerShown:false
-        }}>
-            <Stack.Screen name='BemVindo' component={BemVindo}/>
+            screenOptions={{
+                headerShown: false  }}>
+            <Stack.Screen name='Test' component={ThemeScreen} />
+            <Stack.Screen name='BemVindo' component={BemVindo} />
             <Stack.Screen name='Informacao' component={Informacao} />
         </Stack.Navigator>
     )
-
-    Login: undefined;
-
 }
 
 export const BottomTabNavigator = () => {
-  
+
     return (
-        <NavigationContainer>
+
+        <ThemeContextProvider>
             <Tab.Navigator
                 screenOptions={{
                     headerShown: false,
@@ -56,57 +69,53 @@ export const BottomTabNavigator = () => {
                         position: "absolute",
                         borderTopWidth: 0,
                         backgroundColor: "#062451",
-                        paddingBottom: 2, 
-                        borderTopLeftRadius:30,
+                        paddingBottom: 2,
+                        borderTopLeftRadius: 30,
                         borderTopRightRadius: 30
                     }
                 }}>
-                <Tab.Screen 
+                <Tab.Screen
                     options={{
                         headerShown: false,
-                        tabBarIcon: ({ color, size, focused}) => {
-                            if(focused){
-                                return<Ionicons name="home" size={30} color={color} />
+                        tabBarIcon: ({ color, size, focused }) => {
+                            if (focused) {
+                                return <Ionicons name="home" size={30} color={color} />
                             }
-                            
-                            return<Ionicons name="home-outline" size={size} color={color} />
+
+                            return <Ionicons name="home-outline" size={size} color={color} />
                         }
-                            
-                    }} 
+                    }}
                     name='Home'
-                    component={Home} 
+                    component={Home}
                 />
-                <Tab.Screen 
+                <Tab.Screen
                     options={{
                         headerShown: false,
-                        tabBarIcon: ({ color, size, focused}) => {
-                            if(focused){
-                                return<Ionicons name="game-controller" size={32} color={color} />
+                        tabBarIcon: ({ color, size, focused }) => {
+                            if (focused) {
+                                return <Ionicons name="game-controller" size={32} color={color} />
                             }
-                            
-                            return<Ionicons name="game-controller-outline" size={size} color={color} />
+
+                            return <Ionicons name="game-controller-outline" size={size} color={color} />
                         }
-                            
-                    }} 
+                    }}
                     name='BemVindo'
 
-                    component={StackNavigator} 
+                    component={StackNavigator}
 
                     // component={BemVindo} 
 
                 />
-                <Tab.Screen 
+                <Tab.Screen
                     options={{
                         headerShown: false,
-                        tabBarIcon: ({ color, size, focused}) => {
-                            if(focused){
-                                return<MaterialIcons name="favorite" size={30} color={color} />
+                        tabBarIcon: ({ color, size, focused }) => {
+                            if (focused) {
+                                return <MaterialIcons name="favorite" size={30} color={color} />
                             }
-                            
-                            return<MaterialIcons name="favorite-outline" size={size} color={color} />
+                            return <MaterialIcons name="favorite-outline" size={size} color={color} />
                         }
-                            
-                    }} 
+                    }}
                     name='Favorites'
                     component={Favorites} 
                 />
@@ -126,8 +135,8 @@ export const BottomTabNavigator = () => {
                     name='Login'
                     component={Login} 
                 /> */}
-
             </Tab.Navigator>
-        </NavigationContainer>
+        </ThemeContextProvider>
+
     );
 }
