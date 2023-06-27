@@ -4,49 +4,49 @@ import { styles } from './styles';
 import { Film } from '../../services/Api';
 
 type ModalDescriptionProps = {
-film: Film;
+    film: Film;
 };
 
 const ModalDescription: React.FC<ModalDescriptionProps> = ({ film }) => {
-const [modalVisible, setModalVisible] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
 
-return (
-<View style={styles.centeredView}>
-<Modal
-animationType="slide"
-transparent={true}
-visible={modalVisible}
-onRequestClose={() => {
-Alert.alert('Modal has been closed.');
-setModalVisible(!modalVisible);
-}}
->
-<View style={styles.centeredView}>
-<View style={styles.modalView}>
-<Image source={{ uri: film.movie_banner }} />
-<Text style={styles.modalText}>Titulo: {film.title}</Text>
-<Text style={styles.sinopse}>Sinopse: {film.description}</Text>
-<Text style={styles.modalText}>Diretor: {film.director}</Text>
-<Text style={styles.modalText}>Produtor: {film.producer}</Text>
-<Text style={styles.modalText}>Ano de lançamento: {film.release_date}</Text>
-<Text style={styles.modalText}>Pontuação: {film.rt_score}</Text>
-<Pressable
-style={[styles.button, styles.buttonClose]}
-onPress={() => setModalVisible(!modalVisible)}
->
-<Text style={styles.textStyle}>Hide Modal</Text>
-</Pressable>
-</View>
-</View>
-</Modal>
-<Pressable
-style={[styles.button, styles.buttonOpen]}
-onPress={() => setModalVisible(true)}
->
-<Text style={styles.textStyle}>Show Modal</Text>
-</Pressable>
-</View>
-);
+    return (
+        <View style={styles.centeredView}>
+            <Modal
+                animationType="slide"
+                transparent={true}
+                visible={modalVisible}
+                onRequestClose={() => {
+                    Alert.alert('Modal has been closed.');
+                    setModalVisible(!modalVisible);
+                }}
+            >
+                <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                        <Image source={{ uri: film.movie_banner }} />
+                        <Text style={styles.modalText}>Titulo: {film.title}</Text>
+                        <Text style={styles.sinopse}>Sinopse: {film.description}</Text>
+                        <Text style={styles.modalText}>Diretor: {film.director}</Text>
+                        <Text style={styles.modalText}>Produtor: {film.producer}</Text>
+                        <Text style={styles.modalText}>Ano de lançamento: {film.release_date}</Text>
+                        <Text style={styles.modalText}>Pontuação: {film.rt_score}</Text>
+                        <Pressable
+                            style={[styles.button, styles.buttonClose]}
+                            onPress={() => setModalVisible(!modalVisible)}
+                        >
+                            <Text style={styles.textStyle}>Hide Modal</Text>
+                        </Pressable>
+                    </View>
+                </View>
+            </Modal>
+            <Pressable
+                style={[styles.button, styles.buttonOpen]}
+                onPress={() => setModalVisible(true)}
+            >
+                <Text style={styles.textStyle}>Show Modal</Text>
+            </Pressable>
+        </View>
+    );
 };
 
 export default ModalDescription;
