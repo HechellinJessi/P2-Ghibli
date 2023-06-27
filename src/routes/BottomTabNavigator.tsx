@@ -2,21 +2,44 @@ import React from 'react';
 import Home from '../pages/Home'
 import Favorites from '../pages/Favoritos';
 import BemVindo from '../pages/BemVindo';
-import Login from '../pages/Login';
 
+import Informacao from '../pages/Informacao';
+
+import { createNativeStackNavigator} from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
+const Stack = createNativeStackNavigator();
 
+export type RootStackParamList = {
+    BemVindo: undefined,
+    Informacao: undefined
+
+}
 
 export type RootTabParamList = {
 	Home: undefined;
 	Favorites: undefined;
 	BemVindo: undefined;
+
+}
+
+function StackNavigator(){
+    return(
+        <Stack.Navigator
+        screenOptions={{
+            headerShown:false
+        }}>
+            <Stack.Screen name='BemVindo' component={BemVindo}/>
+            <Stack.Screen name='Informacao' component={Informacao} />
+        </Stack.Navigator>
+    )
+
     Login: undefined;
+
 }
 
 export const BottomTabNavigator = () => {
@@ -66,7 +89,11 @@ export const BottomTabNavigator = () => {
                             
                     }} 
                     name='BemVindo'
+
+                    component={StackNavigator} 
+
                     component={BemVindo} 
+
                 />
                 <Tab.Screen 
                     options={{
@@ -83,6 +110,7 @@ export const BottomTabNavigator = () => {
                     name='Favorites'
                     component={Favorites} 
                 />
+
                 <Tab.Screen 
                     options={{
                         headerShown: false,
@@ -98,6 +126,7 @@ export const BottomTabNavigator = () => {
                     name='Login'
                     component={Login} 
                 />
+
             </Tab.Navigator>
         </NavigationContainer>
     );
