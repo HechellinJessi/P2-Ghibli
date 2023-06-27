@@ -82,7 +82,7 @@ export const styles = StyleSheet.create({
 
       cardContainer: {
         borderRadius: 10,
-        height: 320,
+        height: 420,
         width: 180,
         margin: 5,
         justifyContent: 'space-evenly',
