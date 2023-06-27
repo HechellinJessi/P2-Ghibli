@@ -4,12 +4,14 @@ import { fetchFilms, Film } from '../../services/Api';
 import { Card } from '../../Components/CardMovies';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from './styles';
+import Modal from '../../Components/Modal';
 
 export default function Home() {
   const [films, setFilms] = useState<Film[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [favoriteFilms, setFavoriteFilms] = useState<Film[]>([]);
   const [selectedDirector, setSelectedDirector] = useState<string>('');
+
 
   useEffect(() => {
     async function fetchFilmsData() {
@@ -159,28 +161,29 @@ export default function Home() {
                 Todos
               </Text>
             </TouchableOpacity>
-          
+
           </View>
         </View>
         <FlatList
-        scrollEnabled={false}
-          data={filteredFilms}
-          renderItem={({ item }) => (
-            <View style={styles.cardContainer}>
-            <Card
-              title={item.title}
-              image={item.image}
-              onPressAdd={() => { }}
-              onPressFavorite={() => toggleFavorite(item.title)}
-              isFavorite={favoriteFilms.some((film) => film.title === item.title)}
-            />
-            </View>
-          )}
-          keyExtractor={(item) => item.id}
-          numColumns={2}
-        />
-        </ScrollView>
+  scrollEnabled={false}
+  data={filteredFilms}
+  renderItem={({ item }) => (
+    <View style={styles.cardContainer}>
+      <Card
+        title={item.title}
+        image={item.image}
+        onPressAdd={() => {}}
+        onPressFavorite={() => toggleFavorite(item.title)}
+        isFavorite={favoriteFilms.some((film) => film.title === item.title)}
+      />
+      <Modal film={item} />
+    </View>
+  )}
+  keyExtractor={(item) => item.id}
+  numColumns={2}
+/>
+      </ScrollView>
     </SafeAreaView>
-    
+
   );
 }
