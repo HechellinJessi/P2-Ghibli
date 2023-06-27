@@ -1,11 +1,11 @@
 import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
-import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
-import  Modal from '../Modal';
+import { Headline } from 'react-native-paper';
 
 interface CardProps {
+  // id: string;
   title: string;
   image: string;
   onPressAdd?: () => void;
@@ -20,15 +20,14 @@ export const Card: React.FC<CardProps> = ({ title, image, onPressAdd, onPressFav
         <TouchableOpacity style={styles.cardContainerImage}>
           <Image style={styles.cardImage} source={{ uri: image }} />
           <View style={styles.titleContainer}>
-            <Text style={styles.cardTitle}>{title}</Text>
-            <Modal/>
+            <Headline style={styles.cardTitle}>{title}</Headline>
+            
           </View>
         </TouchableOpacity>
 
         <View style={styles.iconsStyle}>
           {onPressAdd && (
-            <TouchableOpacity onPress={onPressAdd}>
-              <AntDesign style={styles.iconStyle} name="plus" size={24} color="black" />
+            <TouchableOpacity onPress={onPressAdd}>         
             </TouchableOpacity>
           )}
 
@@ -42,3 +41,6 @@ export const Card: React.FC<CardProps> = ({ title, image, onPressAdd, onPressFav
     </View>
   );
 };
+
+
+

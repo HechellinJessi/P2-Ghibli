@@ -3,6 +3,7 @@ import { View, Text, FlatList, SafeAreaView } from 'react-native';
 import { Card } from '../../Components/CardMovies';
 import {styles} from './styles'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Headline } from 'react-native-paper';
 
 interface Film {
   id: string;
@@ -12,6 +13,26 @@ interface Film {
 
 export default function Favorites() {
   const [favoriteFilms, setFavoriteFilms] = useState<Film[]>([]);
+  const [name, setName] = useState('');
+
+  useEffect(() => {
+    getData();
+}, []);
+
+const getData = async () => {
+    try {
+      await AsyncStorage.getItem('UserData')
+            .then(value => {
+                if (value != null) {
+                    let user = JSON.parse(value);
+                    setName(user.Name);
+                }
+            })
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
   useEffect(() => {
     getFavoriteFilms();
@@ -59,7 +80,7 @@ export default function Favorites() {
           numColumns={2}
         />
       ) : (
-        <Text>Você ainda nao tem filmes favoritos D:</Text>
+        <Headline>Você ainda nao tem filmes favoritos D: {name}</Headline>
       )}
     </View>
     </SafeAreaView>

@@ -14,6 +14,16 @@ export async function fetchFilms(): Promise<Film[]> {
   }
 }
 
+export async function fetchFilmById(id:string): Promise<Film[]> {
+  try {
+    const response = await api.get(`/films/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+}
+
 export interface Film {
   id: string;
   title: string;

@@ -4,12 +4,16 @@ import { fetchFilms, Film } from '../../services/Api';
 import { Card } from '../../Components/CardMovies';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from './styles';
+import Modal from '../../Components/Modal';
+import { Headline } from 'react-native-paper';
 
 export default function Home() {
   const [films, setFilms] = useState<Film[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [favoriteFilms, setFavoriteFilms] = useState<Film[]>([]);
   const [selectedDirector, setSelectedDirector] = useState<string>('');
+ 
+
 
   useEffect(() => {
     async function fetchFilmsData() {
@@ -74,7 +78,8 @@ export default function Home() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Procure pelo seu filme Ghibli favorito:</Text>
+      {/* <Text style={styles.title}>Procure pelo seu filme Ghibli favorito:</Text> */}
+      <Headline style={styles.title}>Procure pelo seu filme Ghibli favorito:</Headline>
       <TextInput
         style={styles.input}
         onChangeText={(text) => setSearchQuery(text)}
@@ -159,29 +164,30 @@ export default function Home() {
                 Todos
               </Text>
             </TouchableOpacity>
-          
+
           </View>
         </View>
         
         <FlatList
-        scrollEnabled={false}
+          scrollEnabled={false}
           data={filteredFilms}
           renderItem={({ item }) => (
             <View style={styles.cardContainer}>
-            <Card
-              title={item.title}
-              image={item.image}
-              onPressAdd={() => { }}
-              onPressFavorite={() => toggleFavorite(item.title)}
-              isFavorite={favoriteFilms.some((film) => film.title === item.title)}
-            />
+              <Card
+                title={item.title}
+                image={item.image}
+                onPressAdd={() => { }}
+                onPressFavorite={() => toggleFavorite(item.title)}
+                isFavorite={favoriteFilms.some((film) => film.title === item.title)}
+              />
+              <Modal film={item} />
             </View>
           )}
           keyExtractor={(item) => item.id}
           numColumns={2}
         />
-        </ScrollView>
+      </ScrollView>
     </SafeAreaView>
-    
+
   );
 }

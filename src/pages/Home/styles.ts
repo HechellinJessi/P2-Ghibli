@@ -67,7 +67,9 @@ export const styles = StyleSheet.create({
         borderColor: 'gray', 
         borderWidth: 1, 
         margin: 10, 
-        padding: 5
+        padding: 5,
+        backgroundColor:'#ffffffa3',
+        borderRadius:7
     },
 
     selectedButtonText: {
@@ -83,7 +85,7 @@ export const styles = StyleSheet.create({
 
       cardContainer: {
         borderRadius: 10,
-        height: 320,
+        height: 420,
         width: 180,
         margin: 5,
         justifyContent: 'space-evenly',
