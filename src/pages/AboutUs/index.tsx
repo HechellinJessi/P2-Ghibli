@@ -12,6 +12,8 @@ import julia from '../../assets/Image/Ponyo.png'
 import maria from '../../assets/Image/kiki.png'
 import sophia from '../../assets/Image/mononoke.png'
 
+import { Linking } from 'react-native';
+
 const AboutUs = () => {
   const [comment, setComment] = useState('');
   const [submittedComments, setSubmittedComments] = useState([]);
@@ -54,10 +56,10 @@ const AboutUs = () => {
           name="Ana Carolina Albertini"
           githubUsername="/carolalbertini" />
 
-        <GitComponent
+        <GitComponent 
           imageSource={hechelin}
           name="Hechelin Jessi"
-          githubUsername="/HechelinJessi" />
+          githubUsername="/HechelinJessi"/>
 
         <GitComponent
           imageSource={julia}
@@ -83,12 +85,12 @@ const AboutUs = () => {
           onChangeText={setComment}
         />
        <TouchableOpacity style={styles.button}  onPress={sendComment}>
-            <Text style={styles.buttonTitle}>Enviar</Text>
+            <Headline style={styles.buttonTitle}>Enviar</Headline>
         </TouchableOpacity>
 
         {submittedComments.length > 0 && (
           <View style={{ marginTop: 20 }}>
-            <Text>Comentários Enviados:</Text>
+            <Headline>Comentários Enviados:</Headline>
             {submittedComments.map((submittedComment, index) => (
               <Text style={styles.comment} key={index}>{submittedComment}</Text>
             ))}
