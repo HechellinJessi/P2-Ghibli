@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import {View, StyleSheet, Image, Text, TextInput, Alert, TouchableOpacity,} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { styles } from './styles';
 
+import imgThree from "../../assets/Image/imgThree.png";
 
 export default function Login() {
 
@@ -26,7 +28,7 @@ export default function Login() {
 
     const setData = async () => {
         if (name.length == 0) {
-            Alert.alert('Warning!', 'Please write your data.')
+            Alert.alert('Aviso!', 'Por favor, insira seu nome.')
         } else {
             try {
                 var user = {Name: name}
@@ -39,18 +41,20 @@ export default function Login() {
     }
 
     return (
-        <View>
-            <Text>
-                Async Storage
+        <View style={styles.container}>
+            <Image style={styles.image} source={imgThree}/>
+            <Text style={styles.title}>
+                Login
             </Text>
             <TextInput
+                style={styles.imput}
                 onChangeText={(value) => setName(value)}
                 placeholder='Insira seu nome'
             />
-            <TouchableOpacity onPress={setData}>
-            <Text>Entrar</Text>
+            <TouchableOpacity style={styles.button} onPress={setData}>
+            <Text style={styles.buttonText}>Entrar</Text>
             </TouchableOpacity>
-            <Text>Seu nome é {name}</Text>
+            <Text style={styles.welcomeText}>Bem vindo, {name}</Text>
         </View>
     )
 }
