@@ -14,8 +14,6 @@ export default function App() {
     //     translucent={false}
     //   />
     //   <BottomTabNavigator/>
-
-       <AboutUs/> 
-    // </>
+    <AboutUs/>
   );
 }

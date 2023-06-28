@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { View, TextInput, Button, Text, Alert } from 'react-native';
+import { View, TextInput, Text, Alert, TouchableOpacity} from 'react-native';
 import { styles } from './styles';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import GitComponent from '../../Components/GitComponent'
+import { Headline } from 'react-native-paper';
+
+
+import carol from '../../assets/Image/hakuDragon.png'
+import hechelin from '../../assets/Image/chihiro.png'
+import julia from '../../assets/Image/Ponyo.png'
+import maria from '../../assets/Image/kiki.png'
+import sophia from '../../assets/Image/mononoke.png'
 
 const AboutUs = () => {
   const [comment, setComment] = useState('');
@@ -32,24 +42,60 @@ const AboutUs = () => {
   };
 
   return (
-    <View>
-      <TextInput
-        style={{ padding: 10, marginBottom: 10, marginTop: 150 }}
-        placeholder="Digite seu comentário"
-        value={comment}
-        onChangeText={setComment}
-      />
-      <Button title="Enviar Comentário" onPress={sendComment} />
+    <SafeAreaView>
+      <View style={styles.container}>
+      <View>
+        <Headline style={styles.title}>Sobre Nós</Headline>
+      </View>
+      <View style={styles.gitContainer}>
+        <GitComponent
+          imageSource={carol}
+          name="Ana Carolina Albertini"
+          githubUsername="/carolalbertini" />
 
-      {submittedComments.length > 0 && (
-        <View style={{ marginTop: 20 }}>
-          <Text>Comentários Enviados:</Text>
-          {submittedComments.map((submittedComment, index) => (
-            <Text key={index}>{submittedComment}</Text>
-          ))}
+        <GitComponent
+          imageSource={hechelin}
+          name="Hechelin Jessi"
+          githubUsername="/HechelinJessi" />
+
+        <GitComponent
+          imageSource={julia}
+          name="Julia Soares Moraes"
+          githubUsername="/JuSMoraes" />
+
+        <GitComponent
+          imageSource={maria}
+          name="Maria Antônia de Rezende"
+          githubUsername="/Mariaantonia4000" />
+
+        <GitComponent
+          imageSource={sophia}
+          name="Sophia Resende de Freitas"
+          githubUsername="/Soph-ya" />
+      </View>
+      <View>
+        <Text style={{marginTop: 50, padding: 5, fontSize:16}}>Envie um comentário:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="A gente é muito boa..."
+          value={comment}
+          onChangeText={setComment}
+        />
+       <TouchableOpacity style={styles.button}  onPress={sendComment}>
+            <Text style={styles.buttonTitle}>Enviar</Text>
+        </TouchableOpacity>
+
+        {submittedComments.length > 0 && (
+          <View style={{ marginTop: 20 }}>
+            <Text>Comentários Enviados:</Text>
+            {submittedComments.map((submittedComment, index) => (
+              <Text style={styles.comment} key={index}>{submittedComment}</Text>
+            ))}
+          </View>
+        )}
         </View>
-      )}
-    </View>
+      </View>
+    </SafeAreaView>
   );
 };
 

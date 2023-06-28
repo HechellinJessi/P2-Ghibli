@@ -1,21 +1,14 @@
-import { StyleSheet, Text, View, TouchableOpacity}  from "react-native";
+import { Text, TouchableOpacity}  from "react-native";
 
 import { style } from "./styles";
 
-type ButtonProps = {
-    value: String,
-    // callback: Function;
-}
-
-const Buttons = (props : ButtonProps) => {
+const Buttons = ({title, onPress, ...props}) => {
     return(
-        <View style={style.container}>
         <TouchableOpacity
          style={style.button}
-        onPress={() => {}}>
-            <Text style={style.value}>{props.value}</Text>
+        onPress={onPress}>
+            <Text style={style.value}>{title}</Text>
         </TouchableOpacity>
-        </View>
     );
 }
 
