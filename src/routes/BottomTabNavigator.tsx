@@ -1,23 +1,16 @@
 import React from 'react';
-import Home from '../pages/Home'
 import Favorites from '../pages/Favoritos';
-import BemVindo from '../pages/BemVindo';
-
-import Informacao from '../pages/Informacao';
-
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import Home from '../pages/Home';
+import AboutUs from '../pages/AboutUs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ThemeContextProvider, useTheme } from '../Context/ThemeContext';
+import { useTheme } from '../Context/ThemeContext';
 
-import { MaterialIcons, Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 import { View } from 'react-native';
-import { Button, Headline } from 'react-native-paper';
+import { Button } from 'react-native-paper';
 
-const Tab = createBottomTabNavigator<RootTabParamList>();
-const Stack = createNativeStackNavigator();
-
-const ThemeScreen = () => {
+export const ThemeScreen = () => {
     const { toggleThemeType, themeType, isDarkTheme, theme } = useTheme();
 
     return (
@@ -29,114 +22,75 @@ const ThemeScreen = () => {
     )
 }
 
-export type RootStackParamList = {
-    BemVindo: undefined,
-    Informacao: undefined
-
-}
-
 export type RootTabParamList = {
     Home: undefined;
     Favorites: undefined;
-    BemVindo: undefined;
+    AboutUs: undefined;
 
 }
+const Tab = createBottomTabNavigator<RootTabParamList>();
 
-function StackNavigator() {
+export function BottomTabNavigator() {
+
     return (
-        <Stack.Navigator
+
+        <Tab.Navigator
             screenOptions={{
-                headerShown: false  }}>
-            <Stack.Screen name='Test' component={ThemeScreen} />
-            <Stack.Screen name='BemVindo' component={BemVindo} />
-            <Stack.Screen name='Informacao' component={Informacao} />
-        </Stack.Navigator>
-    )
-}
-
-export const BottomTabNavigator = () => {
-
-    return (
-
-        <ThemeContextProvider>
-            <Tab.Navigator
-                screenOptions={{
+                headerShown: false,
+                tabBarShowLabel: false,
+                tabBarActiveTintColor: "#fff",
+                tabBarInactiveTintColor: "#aaa",
+                tabBarStyle: {
+                    position: "absolute",
+                    borderTopWidth: 0,
+                    backgroundColor: "#062451",
+                    paddingBottom: 2,
+                    borderTopLeftRadius: 30,
+                    borderTopRightRadius: 30
+                }
+            }}>
+            <Tab.Screen
+                options={{
                     headerShown: false,
-                    tabBarShowLabel: false,
-                    tabBarActiveTintColor: "#fff",
-                    tabBarInactiveTintColor: "#aaa",
-                    tabBarStyle: {
-                        position: "absolute",
-                        borderTopWidth: 0,
-                        backgroundColor: "#062451",
-                        paddingBottom: 2,
-                        borderTopLeftRadius: 30,
-                        borderTopRightRadius: 30
+                    tabBarIcon: ({ color, size, focused }) => {
+                        if (focused) {
+                            return <Ionicons name="home" size={30} color={color} />
+                        }
+
+                        return <Ionicons name="home-outline" size={size} color={color} />
                     }
-                }}>
-                <Tab.Screen
-                    options={{
-                        headerShown: false,
-                        tabBarIcon: ({ color, size, focused }) => {
-                            if (focused) {
-                                return <Ionicons name="home" size={30} color={color} />
-                            }
-
-                            return <Ionicons name="home-outline" size={size} color={color} />
+                }}
+                name='Home'
+                component={Home}
+            />
+            <Tab.Screen
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({ color, size, focused }) => {
+                        if (focused) {
+                            return <MaterialIcons name="favorite" size={30} color={color} />
                         }
-                    }}
-                    name='Home'
-                    component={Home}
-                />
-                <Tab.Screen
-                    options={{
-                        headerShown: false,
-                        tabBarIcon: ({ color, size, focused }) => {
-                            if (focused) {
-                                return <Ionicons name="game-controller" size={32} color={color} />
-                            }
-
-                            return <Ionicons name="game-controller-outline" size={size} color={color} />
+                        return <MaterialIcons name="favorite-outline" size={size} color={color} />
+                    }
+                }}
+                name='Favorites'
+                component={Favorites}
+            />
+            <Tab.Screen
+                options={{
+                    headerShown: false,
+                    tabBarIcon: ({ color, size, focused }) => {
+                        if (focused) {
+                            return <Ionicons name="information-circle" size={33} color={color} />
                         }
-                    }}
-                    name='BemVindo'
 
-                    component={StackNavigator}
+                        return <Ionicons name="information-circle-outline" size={size} color={color} />
+                    }
+                }}
+                name='AboutUs'
+                component={AboutUs}
+            />
 
-                    // component={BemVindo} 
-
-                />
-                <Tab.Screen
-                    options={{
-                        headerShown: false,
-                        tabBarIcon: ({ color, size, focused }) => {
-                            if (focused) {
-                                return <MaterialIcons name="favorite" size={30} color={color} />
-                            }
-                            return <MaterialIcons name="favorite-outline" size={size} color={color} />
-                        }
-                    }}
-                    name='Favorites'
-                    component={Favorites} 
-                />
-
-                {/* <Tab.Screen 
-                    options={{
-                        headerShown: false,
-                        tabBarIcon: ({ color, size, focused}) => {
-                            if(focused){
-                                return<Ionicons name="ios-person" size={30} color={color} />
-                            }
-                            
-                            return<Ionicons name="ios-person-outline" size={size} color={color} />
-                        }
-                            
-                    }} 
-                    name='Login'
-                    component={Login} 
-                /> */}
-            </Tab.Navigator>
-        </ThemeContextProvider>
-
+        </Tab.Navigator>
     );
 }

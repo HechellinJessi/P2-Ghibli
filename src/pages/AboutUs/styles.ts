@@ -26,7 +26,7 @@ export const styles = StyleSheet.create({
           width: 351,
           height: 41
         },
-        
+       
         button:{
           alignItems:"center",
           backgroundColor: "#062451",

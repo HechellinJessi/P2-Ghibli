@@ -1,9 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import {View, StyleSheet, Image, Text, TextInput, Alert, TouchableOpacity,} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { styles } from './styles';
 
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../routes/StackNavigation';
 
+import imgThree from "../../assets/Image/imgThree.png";
+import Buttons from '../../Components/Buttons';
+
+type informacaoScreenProp =  NativeStackNavigationProp<RootStackParamList, "Login"> 
 export default function Login() {
+    const navigation =  useNavigation<informacaoScreenProp>()
 
     const [name, setName] = useState('');
 
@@ -26,7 +35,7 @@ export default function Login() {
 
     const setData = async () => {
         if (name.length == 0) {
-            Alert.alert('Warning!', 'Please write your data.')
+            Alert.alert('Aviso!', 'Por favor, insira seu nome.')
         } else {
             try {
                 var user = {Name: name}
@@ -39,18 +48,20 @@ export default function Login() {
     }
 
     return (
-        <View>
-            <Text>
-                Async Storage
+        <View style={styles.container}>
+            <Image style={styles.image} source={imgThree}/>
+            <Text style={styles.title}>
+                Login
             </Text>
             <TextInput
+                style={styles.imput}
                 onChangeText={(value) => setName(value)}
                 placeholder='Insira seu nome'
             />
-            <TouchableOpacity onPress={setData}>
-            <Text>Entrar</Text>
+            <TouchableOpacity  onPress={setData}>
+            <Buttons title='Entrar' onPress={() => navigation.navigate('Home')} />
             </TouchableOpacity>
-            <Text>Seu nome é {name}</Text>
+            <Text style={styles.welcomeText}>Bem vindo, {name}</Text>
         </View>
     )
 }

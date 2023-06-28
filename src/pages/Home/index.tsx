@@ -5,7 +5,10 @@ import { Card } from '../../Components/CardMovies';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from './styles';
 import Modal from '../../Components/Modal';
-import { Headline } from 'react-native-paper';
+import { Headline, Button } from 'react-native-paper';
+import { Ionicons } from '@expo/vector-icons';
+import { ThemeContextProvider, useTheme } from '../../Context/ThemeContext';
+
 
 export default function Home() {
   const [films, setFilms] = useState<Film[]>([]);
@@ -76,8 +79,21 @@ export default function Home() {
     return isMatchingSearch && film.director.toLowerCase() === selectedDirector.toLowerCase();
   });
 
+  const ThemeScreen = () => {
+    const { toggleThemeType, themeType, isDarkTheme, theme } = useTheme();
+
+    return (
+        <View>
+          <Ionicons name='md-sunny' size={30} onPress={toggleThemeType}/>
+            {/* <Button mode='contained' onPress={toggleThemeType}>
+                Theme
+            </Button> */}
+        </View>
+    )
+}
   return (
     <SafeAreaView style={styles.container}>
+      <ThemeScreen />
       {/* <Text style={styles.title}>Procure pelo seu filme Ghibli favorito:</Text> */}
       <Headline style={styles.title}>Procure pelo seu filme Ghibli favorito:</Headline>
       <TextInput
@@ -86,6 +102,7 @@ export default function Home() {
         value={searchQuery}
         placeholder="Buscar..."
       />
+       
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <View style={styles.directorsFilter}>
           <View style={styles.containerTitle}>
@@ -167,6 +184,7 @@ export default function Home() {
 
           </View>
         </View>
+        
         <FlatList
           scrollEnabled={false}
           data={filteredFilms}

@@ -42,6 +42,7 @@ const AboutUs = () => {
   };
 
   return (
+
     <SafeAreaView>
       <View style={styles.container}>
       <View>
@@ -96,6 +97,24 @@ const AboutUs = () => {
         </View>
       </View>
     </SafeAreaView>
+    <View>
+      <TextInput
+        style={{ padding: 10, marginBottom: 10, marginTop: 150 }}
+        placeholder="Digite seu comentário"
+        value={comment}
+        onChangeText={setComment}
+      />
+      <Button title="Enviar Comentário" onPress={sendComment} />
+      <Text>Comentários Enviados:</Text>
+
+      {submittedComments.length > 0 && (
+        <View >
+        {submittedComments.map((submittedComment, index) => (
+              <Text style={styles.comentarios} key={index}>{submittedComment}</Text>
+              ))}
+              </View>
+      )}
+      </View>
   );
 };
 
