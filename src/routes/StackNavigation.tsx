@@ -2,9 +2,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 
 import BemVindo from '../pages/BemVindo';
-import Home from '../pages/Home';
 import Informacao from '../pages/Informacao';
-import { BottomTabNavigator } from './BottomTabNavigator'; 
+import Login from '../pages/Login';
+import { BottomTabNavigator } from './BottomTabNavigator';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -12,13 +12,10 @@ export type RootStackParamList = {
     BemVindo: undefined,
     Informacao: undefined
     Home: undefined;
-    BottomTab: {
-        screen: "Home" | "Favorites";
-    }
+    Login: undefined;
 }
-// const { Navigator, Screen } = createNativeStackNavigator<propsNavigationStack>()
 
- export default function StackNavigator() {
+export default function StackNavigator() {
     return (
         <Stack.Navigator
             initialRouteName='BemVindo'
@@ -27,8 +24,8 @@ export type RootStackParamList = {
             }}>
             <Stack.Screen name='BemVindo' component={BemVindo} />
             <Stack.Screen name='Informacao' component={Informacao} />
+            <Stack.Screen name='Login' component={Login} />
             <Stack.Screen name='Home' component={BottomTabNavigator} />
-            {/* <Stack.Screen name='Test' component={ThemeScreen} /> */}
         </Stack.Navigator>
     );
 }
