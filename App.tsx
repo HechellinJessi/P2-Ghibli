@@ -8,14 +8,14 @@ import Login from './src/pages/Login';
 
 export default function App() {
   return (
-    // <>
-    //   <StatusBar
-    //     backgroundColor='#fff'
-    //     translucent={false}
-    //   />
-    //   <BottomTabNavigator/>
+    <>
+      <StatusBar
+        backgroundColor='#fff'
+        translucent={false}
+      />
+      <BottomTabNavigator/>
 
-       <AboutUs/> 
-    // </>
+       {/* <AboutUs/>  */}
+    </>
   );
 }

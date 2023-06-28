@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, SafeAreaView } from 'react-native';
+import { View, Text, FlatList, SafeAreaView, Image } from 'react-native';
 import { Card } from '../../Components/CardMovies';
 import {styles} from './styles'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Headline } from 'react-native-paper';
+
+import sadTotoro from '../../assets/Image/sadTotoro.png';
 
 interface Film {
   id: string;
@@ -13,26 +15,6 @@ interface Film {
 
 export default function Favorites() {
   const [favoriteFilms, setFavoriteFilms] = useState<Film[]>([]);
-  const [name, setName] = useState('');
-
-  useEffect(() => {
-    getData();
-}, []);
-
-const getData = async () => {
-    try {
-      await AsyncStorage.getItem('UserData')
-            .then(value => {
-                if (value != null) {
-                    let user = JSON.parse(value);
-                    setName(user.Name);
-                }
-            })
-    } catch (error) {
-        console.log(error);
-    }
-}
-
 
   useEffect(() => {
     getFavoriteFilms();
@@ -62,6 +44,9 @@ const getData = async () => {
 
   return (
     <SafeAreaView style={styles.AreaView}>
+      <View>
+        <Headline style={styles.titleText}>FAVORITOS</Headline>
+      </View>
     <View>
       {favoriteFilms.length > 0 ? (
         <FlatList
@@ -80,7 +65,11 @@ const getData = async () => {
           numColumns={2}
         />
       ) : (
-        <Headline>Você ainda nao tem filmes favoritos D: {name}</Headline>
+        <View style={styles.noFavoritesContainer}>
+        <Headline style={styles.noFavoritesText}>Você ainda não tem filmes favoritos D: </Headline>
+        <Image style={styles.image} source={sadTotoro}/>
+        </View>
+        
       )}
     </View>
     </SafeAreaView>
