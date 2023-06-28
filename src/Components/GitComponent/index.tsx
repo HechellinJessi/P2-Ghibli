@@ -11,11 +11,11 @@ const GitComponent = ({imageSource, name, githubUsername}) => {
   <View style={styles.gitComponent}>
     <Image style={styles.cardImage} source={imageSource} />
     <View style={styles.textContainer}>
-      <Text style={styles.name}>{name}</Text>
-      <Text style={styles.github}>
+      <Headline style={styles.name}>{name}</Headline>
+      <Headline style={styles.github}>
         <AntDesign name="github" size={24} color="black" />
         {githubUsername}
-      </Text>
+      </Headline>
     </View>
   </View>
 </View>
