@@ -3,14 +3,14 @@ import { AntDesign } from '@expo/vector-icons';
 
 export const styles = StyleSheet.create({
 
-    centeredView: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginTop: 22,
-      
-      
-    },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+    
+    
+  },
     modalView: {
       margin: 20,
       height: 500,
@@ -27,13 +27,11 @@ export const styles = StyleSheet.create({
       shadowRadius: 4,
       elevation: 5,
     },
-    button: {
-      borderRadius: 20,
-      padding: 10,
-      elevation: 2,
-    },
+
     buttonOpen: {
-      backgroundColor: '#2196F3',
+      marginTop: -90,
+      marginLeft: 60
+     
       
     },
     buttonClose: {
