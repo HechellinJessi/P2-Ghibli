@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     },
 
     scrollViewContent:{
-        paddingBottom: 150,
+        paddingBottom: 120,
     },
 
     directorsFilter: {
@@ -38,6 +38,7 @@ export const styles = StyleSheet.create({
         color: 'white',
       },
 
+   
     title: {
         marginLeft: 8,
         fontWeight: 'bold',

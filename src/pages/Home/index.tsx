@@ -167,6 +167,7 @@ export default function Home() {
 
           </View>
         </View>
+        
         <FlatList
           scrollEnabled={false}
           data={filteredFilms}
