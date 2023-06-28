@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Image, Button } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import { styles } from "./styles"
 
 import { useNavigation } from "@react-navigation/native";
@@ -10,14 +10,14 @@ import { Ionicons } from "@expo/vector-icons";
 import imgTwo from "../../assets/Image/imgTwo.png"
 import Buttons from "../../Components/Buttons";
 
-type informacaoScreenProp =  NativeStackNavigationProp<RootStackParamList, "Informacao"> 
+type informacaoScreenProp = NativeStackNavigationProp<RootStackParamList, "Informacao">
 export default function Informacao() {
-    const navigation =  useNavigation<informacaoScreenProp>()
+    const navigation = useNavigation<informacaoScreenProp>()
 
     return (
         <View style={styles.container}>
             <Image style={styles.image} source={imgTwo} />
-            
+
             <TouchableOpacity>
                 <View style={styles.box}>
                     <View style={styles.bowtwo}>
@@ -34,8 +34,8 @@ export default function Informacao() {
                     <Text style={styles.title}>Studio</Text>
                 </View>
             </TouchableOpacity>
-            
-            <Buttons  title='Next' onPress={() => navigation.navigate('Home')}/>
+
+            <Buttons title='Next' onPress={() => navigation.navigate('Login')} />
         </View>
     )
 };

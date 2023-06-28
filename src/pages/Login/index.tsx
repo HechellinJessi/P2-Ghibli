@@ -3,9 +3,16 @@ import {View, StyleSheet, Image, Text, TextInput, Alert, TouchableOpacity,} from
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from './styles';
 
-import imgThree from "../../assets/Image/imgThree.png";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../routes/StackNavigation';
 
+import imgThree from "../../assets/Image/imgThree.png";
+import Buttons from '../../Components/Buttons';
+
+type informacaoScreenProp =  NativeStackNavigationProp<RootStackParamList, "Login"> 
 export default function Login() {
+    const navigation =  useNavigation<informacaoScreenProp>()
 
     const [name, setName] = useState('');
 
@@ -51,8 +58,8 @@ export default function Login() {
                 onChangeText={(value) => setName(value)}
                 placeholder='Insira seu nome'
             />
-            <TouchableOpacity style={styles.button} onPress={setData}>
-            <Text style={styles.buttonText}>Entrar</Text>
+            <TouchableOpacity  onPress={setData}>
+            <Buttons title='Entrar' onPress={() => navigation.navigate('Home')} />
             </TouchableOpacity>
             <Text style={styles.welcomeText}>Bem vindo, {name}</Text>
         </View>
