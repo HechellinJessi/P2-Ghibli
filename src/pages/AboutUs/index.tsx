@@ -40,16 +40,16 @@ const AboutUs = () => {
         onChangeText={setComment}
       />
       <Button title="Enviar Comentário" onPress={sendComment} />
+      <Text>Comentários Enviados:</Text>
 
       {submittedComments.length > 0 && (
-        <View style={{ marginTop: 20 }}>
-          <Text>Comentários Enviados:</Text>
-          {submittedComments.map((submittedComment, index) => (
-            <Text key={index}>{submittedComment}</Text>
-          ))}
-        </View>
+        <View >
+        {submittedComments.map((submittedComment, index) => (
+              <Text style={styles.comentarios} key={index}>{submittedComment}</Text>
+              ))}
+              </View>
       )}
-    </View>
+      </View>
   );
 };
 

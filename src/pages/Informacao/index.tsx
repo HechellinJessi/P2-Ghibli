@@ -1,19 +1,23 @@
 import React from "react";
-import { View, Text, TouchableOpacity, Image } from "react-native";
+import { View, Text, TouchableOpacity, Image, Button } from "react-native";
 import { styles } from "./styles"
 
-import Buttons from "../../Components/Buttons";
 import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../routes/StackNavigation";
 
+import { Ionicons } from "@expo/vector-icons";
 import imgTwo from "../../assets/Image/imgTwo.png"
+import Buttons from "../../Components/Buttons";
 
-
-export default function () {
-
+type informacaoScreenProp =  NativeStackNavigationProp<RootStackParamList, "Informacao"> 
+export default function Informacao() {
+    const navigation =  useNavigation<informacaoScreenProp>()
 
     return (
         <View style={styles.container}>
             <Image style={styles.image} source={imgTwo} />
+            
             <TouchableOpacity>
                 <View style={styles.box}>
                     <View style={styles.bowtwo}>
@@ -30,7 +34,8 @@ export default function () {
                     <Text style={styles.title}>Studio</Text>
                 </View>
             </TouchableOpacity>
-            <Buttons value={"Next"}/>
+            
+            <Buttons  title='Next' onPress={() => navigation.navigate('Home')}/>
         </View>
     )
 };
