@@ -85,16 +85,12 @@ export default function Home() {
     return (
         <View>
           <Ionicons name='md-sunny' size={30} onPress={toggleThemeType}/>
-            {/* <Button mode='contained' onPress={toggleThemeType}>
-                Theme
-            </Button> */}
         </View>
     )
 }
   return (
     <SafeAreaView style={styles.container}>
       <ThemeScreen />
-      {/* <Text style={styles.title}>Procure pelo seu filme Ghibli favorito:</Text> */}
       <Headline style={styles.title}>Procure pelo seu filme Ghibli favorito:</Headline>
       <TextInput
         style={styles.input}
@@ -197,7 +193,9 @@ export default function Home() {
                 onPressFavorite={() => toggleFavorite(item.title)}
                 isFavorite={favoriteFilms.some((film) => film.title === item.title)}
               />
+          
               <Modal film={item} />
+              
             </View>
           )}
           keyExtractor={(item) => item.id}

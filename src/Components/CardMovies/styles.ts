@@ -2,15 +2,6 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
 
-  cardContainer: {
-
-    borderRadius: 10,
-    height: 320,
-    width: 180,
-    justifyContent: "space-between"
-
-  },
-
   card:{
     justifyContent:"space-evenly"
   },
@@ -37,6 +28,7 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: 'bold',
     width: 165,
+    height: 30,
     textAlign:"center"
   },
 
@@ -46,9 +38,16 @@ export const styles = StyleSheet.create({
     alignContent:"flex-end"
   },
 
+  Icon :{
+    
+    justifyContent: "flex-start"
+  },
+
   iconStyle: {
     marginRight: 15,
-    padding: 10
+    padding: 10,
+    alignItems:"flex-start",
+    justifyContent: "flex-start"
   }
 
 })

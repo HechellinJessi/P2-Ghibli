@@ -5,7 +5,6 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Headline } from 'react-native-paper';
 
 interface CardProps {
-  // id: string;
   title: string;
   image: string;
   onPressAdd?: () => void;
@@ -16,7 +15,7 @@ interface CardProps {
 export const Card: React.FC<CardProps> = ({ title, image, onPressAdd, onPressFavorite, isFavorite }) => {
   return (
     <View style={styles.card}>
-      <View style={styles.cardContainer}>
+      <View>
         <TouchableOpacity style={styles.cardContainerImage}>
           <Image style={styles.cardImage} source={{ uri: image }} />
           <View style={styles.titleContainer}>
@@ -32,7 +31,7 @@ export const Card: React.FC<CardProps> = ({ title, image, onPressAdd, onPressFav
           )}
 
           {onPressFavorite && (
-            <TouchableOpacity onPress={onPressFavorite}>
+            <TouchableOpacity style={styles.Icon} onPress={onPressFavorite}>
               <MaterialIcons style={styles.iconStyle} name={isFavorite ? 'favorite' : 'favorite-border'} size={24} color="red" />
             </TouchableOpacity>
           )}
