@@ -1,18 +1,14 @@
 import { View, Text, Image, Button } from 'react-native';
-
-
 import { styles } from './styles';
-
 import telaone from '../../assets/Image/imgOne.png'
 import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../../routes/StackNavigation';
 
-import { RootStackParamList, RootTabParamList } from '../../routes/BottomTabNavigator'
-import { NativeStackNavigationProp} from '@react-navigation/native-stack'
-
-type homeScreenProp =  NativeStackNavigationProp<RootStackParamList, "BemVindo"> 
+type homeScreenProp =  NativeStackNavigationProp<RootStackParamList, "BemVindo">
 
 export default function BemVindo(){
-    const navigation = useNavigation<homeScreenProp>()
+    const navigation =  useNavigation<homeScreenProp>()
     return(
         <View style={styles.container}>
             <Image style={styles.image} source={telaone}/>
