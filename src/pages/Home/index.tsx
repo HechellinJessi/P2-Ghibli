@@ -8,6 +8,7 @@ import Modal from '../../Components/Modal';
 import { Headline, Button } from 'react-native-paper';
 import { Ionicons } from '@expo/vector-icons';
 import { ThemeContextProvider, useTheme } from '../../Context/ThemeContext';
+import ThemeScreen from '../../Components/ButtonTheme';
 
 
 export default function Home() {
@@ -79,15 +80,6 @@ export default function Home() {
     return isMatchingSearch && film.director.toLowerCase() === selectedDirector.toLowerCase();
   });
 
-  const ThemeScreen = () => {
-    const { toggleThemeType, themeType, isDarkTheme, theme } = useTheme();
-
-    return (
-        <View>
-          <Ionicons name='md-sunny' size={30} onPress={toggleThemeType}/>
-        </View>
-    )
-}
   return (
     <SafeAreaView style={styles.container}>
       <ThemeScreen />
