@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, TextInput, Text, Alert, TouchableOpacity} from 'react-native';
+import { View, TextInput, TouchableWithoutFeedback, Keyboard, Text, Alert, TouchableOpacity, ScrollView} from 'react-native';
 import { styles } from './styles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import GitComponent from '../../Components/GitComponent'
@@ -44,9 +44,13 @@ const AboutUs = () => {
   };
 
   return (
-
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <SafeAreaView>
       <View style={styles.container}>
+      <ScrollView 
+      overScrollMode='never'
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.scrollViewContent}>
       <View>
         <Headline style={styles.title}>Sobre Nós</Headline>
       </View>
@@ -76,6 +80,7 @@ const AboutUs = () => {
           name="Sophia Resende de Freitas"
           githubUsername="/Soph-ya" />
       </View>
+    
       <View>
         <Text style={{marginTop: 50, padding: 5, fontSize:16}}>Envie um comentário:</Text>
         <TextInput
@@ -84,6 +89,7 @@ const AboutUs = () => {
           value={comment}
           onChangeText={setComment}
         />
+         
        <TouchableOpacity style={styles.button}  onPress={sendComment}>
             <Headline style={styles.buttonTitle}>Enviar</Headline>
         </TouchableOpacity>
@@ -97,8 +103,10 @@ const AboutUs = () => {
           </View>
         )}
         </View>
+        </ScrollView>
       </View>
     </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 };
 

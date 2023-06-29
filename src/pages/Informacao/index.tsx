@@ -18,7 +18,7 @@ export default function Informacao() {
         <View style={styles.container}>
             <Image style={styles.image} source={imgTwo} />
 
-            <TouchableOpacity style={styles.buttonsContainer}>
+            <TouchableOpacity>
                 <View style={styles.box}>
                     <View style={styles.bowtwo}>
                         <Text style={styles.title}>Manga</Text>
@@ -34,10 +34,9 @@ export default function Informacao() {
                     <Text style={styles.title}>Studio</Text>
                 </View>
             </TouchableOpacity>
-
-            <TouchableOpacity style={styles.button}>
+            <View style={styles.button}>
             <Buttons title='Next' onPress={() => navigation.navigate('Login')} />
-            </TouchableOpacity>
+            </View>
         </View>
     )
 };

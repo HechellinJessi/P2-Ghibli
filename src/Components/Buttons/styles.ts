@@ -9,11 +9,11 @@ export const styles = StyleSheet.create({
     button:{
         alignItems:"center",
         backgroundColor: "#062451",
-        // padding:12,
-        // width: 300,
+        padding:12,
+        width: 300,
         borderRadius:10,
-        // marginTop: 100,
-        // marginLeft:30
+        marginTop: 100,
+
     },
     value:{
         fontSize:30,
