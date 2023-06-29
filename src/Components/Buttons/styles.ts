@@ -1,10 +1,8 @@
 import { StyleSheet } from "react-native";
 
-
 export const styles = StyleSheet.create({
     container:{
         flex:1
-
     },
     button:{
         alignItems:"center",
@@ -12,8 +10,6 @@ export const styles = StyleSheet.create({
         padding:12,
         width: 300,
         borderRadius:10,
-        marginTop: 100,
-
     },
     value:{
         fontSize:30,

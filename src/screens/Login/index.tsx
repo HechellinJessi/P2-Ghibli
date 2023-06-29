@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {View, StyleSheet, Image, Text, TextInput, Alert, Keyboard, TouchableWithoutFeedback,} from 'react-native';
+import { View, Image, Text, TextInput, Alert, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView, } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from './styles';
 
@@ -10,9 +10,9 @@ import { RootStackParamList } from '../../routes/StackNavigation';
 import imgThree from "../../assets/Image/imgThree.png";
 import Buttons from '../../Components/Buttons';
 
-type informacaoScreenProp =  NativeStackNavigationProp<RootStackParamList, "Login"> 
+type informacaoScreenProp = NativeStackNavigationProp<RootStackParamList, "Login">
 export default function Login() {
-    const navigation =  useNavigation<informacaoScreenProp>()
+    const navigation = useNavigation<informacaoScreenProp>()
 
     const [name, setName] = useState('');
 
@@ -37,9 +37,9 @@ export default function Login() {
             Alert.alert('Aviso!', 'Por favor, insira seu nome.')
         } else {
             try {
-                var user = {Name: name}
+                var user = { Name: name }
                 await AsyncStorage.setItem('UserData', JSON.stringify(user));
-                    navigation.navigate('Splash');
+                navigation.navigate('Splash');
             } catch (error) {
                 console.log(error);
             }
@@ -48,24 +48,27 @@ export default function Login() {
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.container}>
-            <Image style={styles.image} source={imgThree}/>
-            <Text style={styles.title}>
-                Login
-            </Text>
-            <TextInput
-                style={styles.imput}
-                onChangeText={(value) => setName(value)}
-                placeholder='Insira seu nome'
-            />
-            <View>
-            <Buttons 
-            title='Entrar' 
-            onPress={() => {
-            setData()}}/>
-            <Text style={styles.welcomeText}>Bem vindo, {name}</Text>
+            <View style={styles.container}>
+                <KeyboardAvoidingView behavior="position" enabled>
+                    <Image style={styles.image} source={imgThree} />
+                    <Text style={styles.title}>
+                        Login
+                    </Text>
+                    <TextInput
+                        style={styles.input}
+                        onChangeText={(value) => setName(value)}
+                        placeholder='Insira seu nome'
+                    />
+                    <View style={styles.boxLogin}> 
+                        <Buttons
+                            title='Entrar'
+                            onPress={() => {
+                                setData()
+                            }} />
+                    </View>
+                    <Text style={styles.welcomeText}>Bem vindo, {name}</Text>
+                </KeyboardAvoidingView>
             </View>
-        </View>
         </TouchableWithoutFeedback>
     )
 }

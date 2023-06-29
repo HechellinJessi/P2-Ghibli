@@ -12,7 +12,6 @@ import {
   DefaultTheme as NavigationDefaultTheme,
 } from '@react-navigation/native';
 
-
 const lightTheme = {
   ...NavigationDefaultTheme,
   ...PaperDefaultTheme,
@@ -34,7 +33,6 @@ const darkTheme = {
 export type Theme = typeof lightTheme;
 
 export type ThemeType = 'dark' | 'light';
-
 export interface ThemeContextValue {
   theme: Theme,
   themeType: ThemeType;
@@ -52,7 +50,6 @@ export const ThemeContext = React.createContext<ThemeContextValue>({
 });
 
 export const useTheme = () => useContext(ThemeContext);
-
 export interface ThemeContextProviderProps {
   children: React.ReactNode;
 }
@@ -75,7 +72,8 @@ export const ThemeContextProvider = ({ children }: ThemeContextProviderProps) =>
     <NavigationContainer theme={theme}>
       <PaperProvider theme={theme}>
         <ThemeContext.Provider
-          value={{ theme,
+          value={{
+            theme,
             themeType,
             isDarkTheme,
             setThemeType,

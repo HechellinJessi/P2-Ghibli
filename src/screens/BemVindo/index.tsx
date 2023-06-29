@@ -14,9 +14,9 @@ export default function BemVindo(){
         <View style={styles.container}>
             <Image style={styles.image} source={telaone}/>
             <Text style={styles.title}>Welcome To Studio Glibli Library.</Text>
-            <TouchableOpacity style={styles.button}>
+            <View style={styles.button}>
             <Buttons title='Next' onPress={() => navigation.navigate('Informacao')}/>
-            </TouchableOpacity>
+            </View>
         </View>
 
     );
