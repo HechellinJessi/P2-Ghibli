@@ -40,7 +40,7 @@ export default function Login() {
             try {
                 var user = {Name: name}
                 await AsyncStorage.setItem('UserData', JSON.stringify(user));
-                // navigation.navigate('Home');
+                    navigation.navigate('Home');
             } catch (error) {
                 console.log(error);
             }
@@ -58,8 +58,13 @@ export default function Login() {
                 onChangeText={(value) => setName(value)}
                 placeholder='Insira seu nome'
             />
-            <TouchableOpacity  onPress={setData}>
-            <Buttons title='Entrar' onPress={() => navigation.navigate('Home')} />
+            <TouchableOpacity 
+            style={styles.button}>
+            <Buttons 
+            title='Entrar' 
+            onPress={() => {
+            // navigation.navigate('Home');
+            setData()}}/>
             </TouchableOpacity>
             <Text style={styles.welcomeText}>Bem vindo, {name}</Text>
         </View>
