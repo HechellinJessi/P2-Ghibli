@@ -5,19 +5,16 @@ import { Card } from '../../Components/CardMovies';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from './styles';
 import Modal from '../../Components/Modal';
-import { Headline, Button } from 'react-native-paper';
-import { Ionicons } from '@expo/vector-icons';
-import { ThemeContextProvider, useTheme } from '../../Context/ThemeContext';
+import { Headline } from 'react-native-paper';
 import ThemeScreen from '../../Components/ButtonTheme';
-
+import { AntDesign } from '@expo/vector-icons';
 
 export default function Home() {
   const [films, setFilms] = useState<Film[]>([]);
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [favoriteFilms, setFavoriteFilms] = useState<Film[]>([]);
   const [selectedDirector, setSelectedDirector] = useState<string>('');
- 
-
+  const [showDirectorsFilter, setShowDirectorsFilter] = useState<boolean>(false);
 
   useEffect(() => {
     async function fetchFilmsData() {
@@ -82,7 +79,9 @@ export default function Home() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={{alignItems:"center"}}>
       <ThemeScreen />
+      </View>
       <Headline style={styles.title}>Procure pelo seu filme Ghibli favorito:</Headline>
       <TextInput
         style={styles.input}
@@ -90,8 +89,15 @@ export default function Home() {
         value={searchQuery}
         placeholder="Buscar..."
       />
-       
-      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+      <TouchableOpacity
+        onPress={() => setShowDirectorsFilter(!showDirectorsFilter)}
+      >
+        <Text style={styles.showHideButtonText}>
+          {showDirectorsFilter ? <AntDesign name="right" size={16} color="black" /> : <AntDesign name="down" size={16} color="black" />}
+        </Text>
+      </TouchableOpacity>
+
+      {showDirectorsFilter && (
         <View style={styles.directorsFilter}>
           <View style={styles.containerTitle}>
             <TouchableOpacity
@@ -169,10 +175,11 @@ export default function Home() {
                 Todos
               </Text>
             </TouchableOpacity>
-
           </View>
         </View>
-        
+      )}
+
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <FlatList
           scrollEnabled={false}
           data={filteredFilms}
@@ -185,9 +192,7 @@ export default function Home() {
                 onPressFavorite={() => toggleFavorite(item.title)}
                 isFavorite={favoriteFilms.some((film) => film.title === item.title)}
               />
-          
               <Modal film={item} />
-              
             </View>
           )}
           keyExtractor={(item) => item.id}
@@ -195,6 +200,5 @@ export default function Home() {
         />
       </ScrollView>
     </SafeAreaView>
-
   );
 }

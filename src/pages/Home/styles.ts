@@ -1,14 +1,25 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-
+    
     container: {
-        marginTop: 55,
+        marginTop: 20,
         margin: 5
     },
-
+    
+    title: {
+        marginTop: 35,
+        marginLeft: 8,
+        fontWeight: 'bold',
+        fontSize: 18
+    },
     scrollViewContent:{
         paddingBottom: 160,
+    },
+
+    showHideButtonText: {
+        marginLeft: 15 
+
     },
 
     directorsFilter: {
@@ -39,11 +50,6 @@ export const styles = StyleSheet.create({
       },
 
    
-    title: {
-        marginLeft: 8,
-        fontWeight: 'bold',
-        fontSize: 18
-    },
 
     containerInput: {
         borderRadius: 16,

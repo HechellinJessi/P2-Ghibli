@@ -23,6 +23,6 @@ export const styles = StyleSheet.create({
       },
       github: {
         fontSize: 14,
-        marginTop: 5,
+        marginTop: 1,
       },
     });
