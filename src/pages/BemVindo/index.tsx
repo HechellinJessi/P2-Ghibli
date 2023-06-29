@@ -1,4 +1,4 @@
-import { View, Text, Image, Button } from 'react-native';
+import { View, Text, Image, Button, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 import telaone from '../../assets/Image/imgOne.png'
 import { useNavigation } from '@react-navigation/native';
@@ -14,7 +14,9 @@ export default function BemVindo(){
         <View style={styles.container}>
             <Image style={styles.image} source={telaone}/>
             <Text style={styles.title}>Welcome To Studio Glibli Library.</Text>
+            <TouchableOpacity style={styles.button}>
             <Buttons title='Next' onPress={() => navigation.navigate('Informacao')}/>
+            </TouchableOpacity>
         </View>
 
     );

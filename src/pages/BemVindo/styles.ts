@@ -25,5 +25,13 @@ export const styles = StyleSheet.create({
         fontWeight:"500",
         marginLeft:30
 
+    },
+
+    button: {
+        padding:12,
+        width: 300,
+        borderRadius:10,
+        marginTop: 100,
+        marginLeft:30
     }
 });
