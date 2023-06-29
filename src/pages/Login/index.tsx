@@ -39,7 +39,7 @@ export default function Login() {
             try {
                 var user = {Name: name}
                 await AsyncStorage.setItem('UserData', JSON.stringify(user));
-                    navigation.navigate('Home');
+                    navigation.navigate('Splash');
             } catch (error) {
                 console.log(error);
             }

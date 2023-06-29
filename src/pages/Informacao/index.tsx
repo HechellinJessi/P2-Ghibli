@@ -34,9 +34,8 @@ export default function Informacao() {
                     <Text style={styles.title}>Studio</Text>
                 </View>
             </TouchableOpacity>
-            <View style={styles.button}>
+
             <Buttons title='Next' onPress={() => navigation.navigate('Login')} />
-            </View>
         </View>
     )
 };
