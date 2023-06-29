@@ -1,31 +1,25 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-
     container: {
-
         flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
         backgroundColor: "#1CC8DF",
     },
     image: {
-        position: 'absolute',
-        top: '25%',
-        left: '20%',
         width: 200,
         height: 200
     },
     box: {
         flexDirection: "row",
-        marginTop: 270,
         right: 60,
         justifyContent: "center"
-
     },
     boxone: {
         width: 143,
         height: 57,
         borderRadius: 10,
-        left: "30%",
         backgroundColor: "#AA77D2",
         alignItems: "center",
         justifyContent: "center"
@@ -39,7 +33,6 @@ export const styles = StyleSheet.create({
         backgroundColor: "#310864",
         alignItems: "center",
         justifyContent: "center",
-
     },
     bowtrhee: {
         width: 103,
@@ -66,11 +59,9 @@ export const styles = StyleSheet.create({
         fontSize: 25,
         color: "#fff"
     },
-
     button: {
-        justifyContent: "center", 
-        alignItems: "center", 
-        marginTop: 72
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 100
     }
-
 })

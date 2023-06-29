@@ -79,8 +79,8 @@ export default function Home() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{alignItems:"center"}}>
-      <ThemeScreen />
+      <View style={{ alignItems: "center" }}>
+        <ThemeScreen />
       </View>
       <Headline style={styles.title}>Procure pelo seu filme Ghibli favorito:</Headline>
       <TextInput
@@ -92,9 +92,9 @@ export default function Home() {
       <TouchableOpacity
         onPress={() => setShowDirectorsFilter(!showDirectorsFilter)}
       >
-        <Text style={styles.showHideButtonText}>
+        <Headline style={styles.showHideButtonText}>
           {showDirectorsFilter ? <AntDesign name="right" size={16} color="black" /> : <AntDesign name="down" size={16} color="black" />}
-        </Text>
+        </Headline>
       </TouchableOpacity>
 
       {showDirectorsFilter && (

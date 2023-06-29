@@ -1,11 +1,11 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 
-import BemVindo from '../pages/BemVindo';
-import Informacao from '../pages/Informacao';
-import Login from '../pages/Login';
+import BemVindo from '../screens/BemVindo';
+import Informacao from '../screens/Informacao';
+import Login from '../screens/Login';
 import { BottomTabNavigator } from './BottomTabNavigator';
-import SplashScreen from '../pages/Login/Splash';
+import SplashScreen from '../screens/Login/Splash';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 

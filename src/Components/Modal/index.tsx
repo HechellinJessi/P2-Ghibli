@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Alert, Modal, StyleSheet, Text, Pressable, View, Image } from 'react-native';
+import React, { useState } from 'react';
+import { Alert, Modal, Text, Pressable, View, Image } from 'react-native';
 import { styles } from './styles';
 import { Film } from '../../services/Api';
-import { Headline } from 'react-native-paper';
 import { AntDesign } from '@expo/vector-icons';
 
 type ModalDescriptionProps = {
@@ -33,10 +32,9 @@ const ModalDescription: React.FC<ModalDescriptionProps> = ({ film }) => {
                         <Text style={styles.modalText}>Ano de lançamento: {film.release_date}</Text>
                         <Text style={styles.modalText}>Pontuação: {film.rt_score}</Text>
                         <Pressable
-                            style={[styles.buttonClose]}
                             onPress={() => setModalVisible(!modalVisible)}
                         >
-                            <Text style={styles.textStyle}>Hide Modal</Text>
+                            <AntDesign name='close' size={40} />
                         </Pressable>
                     </View>
                 </View>
@@ -50,5 +48,4 @@ const ModalDescription: React.FC<ModalDescriptionProps> = ({ film }) => {
         </View>
     );
 };
-
 export default ModalDescription;

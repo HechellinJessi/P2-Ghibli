@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, SafeAreaView, Image } from 'react-native';
 import { Card } from '../../Components/CardMovies';
-import {styles} from './styles'
+import { styles } from './styles'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Headline } from 'react-native-paper';
 
@@ -47,31 +47,30 @@ export default function Favorites() {
       <View>
         <Headline style={styles.titleText}>FAVORITOS</Headline>
       </View>
-    <View>
-      {favoriteFilms.length > 0 ? (
-        <FlatList
-          data={favoriteFilms}
-          renderItem={({ item }) => (
-            <View style={styles.cardContainer}>
-            <Card
-              title={item.title}
-              image={item.image}
-              onPressFavorite={() => removeFavoriteFilm(item.id)}
-              isFavorite={true}
-            />
-            </View>
-          )}
-          keyExtractor={(item) => item.id}
-          numColumns={2}
-        />
-      ) : (
-        <View style={styles.noFavoritesContainer}>
-        <Headline style={styles.noFavoritesText}>Você ainda não tem filmes favoritos D: </Headline>
-        <Image style={styles.image} source={sadTotoro}/>
-        </View>
-        
-      )}
-    </View>
+      <View>
+        {favoriteFilms.length > 0 ? (
+          <FlatList
+            data={favoriteFilms}
+            renderItem={({ item }) => (
+              <View style={styles.cardContainer}>
+                <Card
+                  title={item.title}
+                  image={item.image}
+                  onPressFavorite={() => removeFavoriteFilm(item.id)}
+                  isFavorite={true}
+                />
+              </View>
+            )}
+            keyExtractor={(item) => item.id}
+            numColumns={2}
+          />
+        ) : (
+          <View style={styles.noFavoritesContainer}>
+            <Headline style={styles.noFavoritesText}>Você ainda não tem filmes favoritos D: </Headline>
+            <Image style={styles.image} source={sadTotoro} />
+          </View>
+        )}
+      </View>
     </SafeAreaView>
   );
 }

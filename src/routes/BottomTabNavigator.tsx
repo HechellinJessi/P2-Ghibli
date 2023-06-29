@@ -1,26 +1,12 @@
 import React from 'react';
-import Favorites from '../pages/Favoritos';
-import Home from '../pages/Home';
-import AboutUs from '../pages/AboutUs';
+import Favorites from '../screens/Favoritos';
+import Home from '../screens/Home';
+import AboutUs from '../screens/AboutUs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { useTheme } from '../Context/ThemeContext';
-
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
-
 import { View } from 'react-native';
 import { Button } from 'react-native-paper';
-
-export const ThemeScreen = () => {
-    const { toggleThemeType, themeType, isDarkTheme, theme } = useTheme();
-
-    return (
-        <View>
-            <Button mode='contained' onPress={toggleThemeType}>
-                Theme
-            </Button>
-        </View>
-    )
-}
 
 export type RootTabParamList = {
     Home: undefined;
@@ -31,9 +17,7 @@ export type RootTabParamList = {
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
 export function BottomTabNavigator() {
-
     return (
-
         <Tab.Navigator
             screenOptions={{
                 headerShown: false,
@@ -90,7 +74,6 @@ export function BottomTabNavigator() {
                 name='AboutUs'
                 component={AboutUs}
             />
-
         </Tab.Navigator>
     );
 }

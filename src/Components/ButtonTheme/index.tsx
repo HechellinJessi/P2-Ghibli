@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { View } from "react-native";
-import { ThemeContextProvider, useTheme } from '../../Context/ThemeContext';
+import { useTheme } from '../../Context/ThemeContext';
 
 const ThemeScreen = () => {
     const { toggleThemeType, isDarkTheme } = useTheme();
@@ -27,5 +27,4 @@ const ThemeScreen = () => {
         </View>
     )
 }
-
 export default ThemeScreen;

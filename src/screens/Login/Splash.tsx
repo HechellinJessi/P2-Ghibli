@@ -17,14 +17,14 @@ const SplashScreen = () => {
         setTimeout(() => {
             navigation.dispatch(CommonActions.reset({
                 index: 0,
-                routes: [{name: 'Home'}]
+                routes: [{ name: 'Home' }]
             }))
         }, 2000);
     }, [])
 
     return (
         <View style={styles.container}>
-            <LottieView source={cat} style={{width: size, height: size}} 
+            <LottieView source={cat} style={{ width: size, height: size }}
                 autoPlay loop resizeMode='contain' />
         </View>
     )
@@ -37,5 +37,4 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
 })
-
 export default SplashScreen;
