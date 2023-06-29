@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {View, StyleSheet, Image, Text, TextInput, Alert, TouchableOpacity,} from 'react-native';
+import {View, StyleSheet, Image, Text, TextInput, Alert, Keyboard, TouchableWithoutFeedback,} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { styles } from './styles';
 
@@ -25,7 +25,6 @@ export default function Login() {
             AsyncStorage.getItem('UserData')
                 .then(value => {
                     if (value != null) {
-                        //navigation.navigate('Home');
                     }
                 })
         } catch (error) {
@@ -48,6 +47,7 @@ export default function Login() {
     }
 
     return (
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
             <Image style={styles.image} source={imgThree}/>
             <Text style={styles.title}>
@@ -58,15 +58,14 @@ export default function Login() {
                 onChangeText={(value) => setName(value)}
                 placeholder='Insira seu nome'
             />
-            <TouchableOpacity 
-            style={styles.button}>
+            <View>
             <Buttons 
             title='Entrar' 
             onPress={() => {
-            // navigation.navigate('Home');
             setData()}}/>
-            </TouchableOpacity>
             <Text style={styles.welcomeText}>Bem vindo, {name}</Text>
+            </View>
         </View>
+        </TouchableWithoutFeedback>
     )
 }

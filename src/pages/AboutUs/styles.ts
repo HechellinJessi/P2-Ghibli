@@ -46,6 +46,11 @@ export const styles = StyleSheet.create({
         padding: 5,
         margin: 2,
         borderRadius: 5
-      }
+      },
+
+      scrollViewContent: {
+        paddingBottom: 160,
+
+      },
       })
       
