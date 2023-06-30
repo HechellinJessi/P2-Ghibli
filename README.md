@@ -73,7 +73,7 @@ Isso iniciará o Metro Bundler do Expo e exibirá um QR code no terminal.
 A partir desse ponto, você pode explorar e interagir com as funcionalidades do aplicativo Mundo Ghibli desenvolvido em React Native, TypeScript e Expo. Sinta-se à vontade para fazer alterações e personalizações conforme necessário para atender às suas necessidades.
 
 
-## :handshake: Colaboradores
+## :handshake: DESENVOLVEDORES
 <table>
   <tr>
       <td align="center">
